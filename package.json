@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run cacheable-reproduce:serve-ssr",
+    "serve:ssr": "node dist/cacheable-reproduce/server/main.js",
+    "build:ssr": "ng build && ng run cacheable-reproduce:server",
+    "prerender": "ng run cacheable-reproduce:prerender"
   },
   "private": true,
   "dependencies": {
@@ -17,7 +21,11 @@
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/platform-server": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@nguniversal/express-engine": "12.1.3",
+    "cacheable-lookup": "6.0.4",
+    "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -26,6 +34,8 @@
     "@angular-devkit/build-angular": "~12.2.17",
     "@angular/cli": "~12.2.17",
     "@angular/compiler-cli": "~12.2.0",
+    "@nguniversal/builders": "^12.1.3",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",
